@@ -1,0 +1,4 @@
+õpetaja
+administraator
+külaline
+õpilane
