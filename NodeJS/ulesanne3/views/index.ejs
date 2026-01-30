@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="et">
+
+<%- include('includes/head', { title: 'Avaleht' }) %>
+
+    <body>
+        <%- include('includes/nav') %>
+
+            <header class="bg-light py-5 border-bottom">
+                <div class="container">
+                    <h1 class="display-6">Avaleht</h1>
+                    <p class="lead mb-0">Uudised ja teated</p>
+                </div>
+            </header>
+
+            <main class="container my-4">
+                <h2>Uudis 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum beatae, quis soluta nulla, ex
+                    voluptatem facilis quia, quos architecto porro aperiam voluptas deleniti laborum distinctio sunt
+                    quod
+                    sapiente veniam.</p>
+                <h2>Uudis 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum beatae, quis soluta nulla, ex
+                    voluptatem facilis quia, quos architecto porro aperiam voluptas deleniti laborum distinctio sunt
+                    quod
+                    sapiente veniam.</p>
+                <h2>Uudis 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum beatae, quis soluta nulla, ex
+                    voluptatem facilis quia, quos architecto porro aperiam voluptas deleniti laborum distinctio sunt
+                    quod
+                    sapiente veniam.</p>
+            </main>
+
+            <main class="container my-4">
+                <h2>Viimased 4 lisatud looma</h2>
+                <% loomad.slice(-4).forEach(loom=> { %>
+                    <div class="card mb-4" style="width: 25rem; display: inline-block; margin-right: 15px;">
+                        <img src="<%= loom.image %>" alt="<%= loom.name %>" width="300" height="200">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <%= loom.name %>
+                            </h2>
+                            <p class="card-text">Vanus: <%= loom.age %> aastat</p>
+                            <p class="card-text">Liik: <%= loom.species %>
+                            </p>
+                            <p class="card-text">Staatus: <%= loom.status %>
+                            </p>
+                        </div>
+                    </div>
+                    <% }) %>
+            </main>
+
+            <%- include('includes/footer') %>
+    </body>
+
+</html>

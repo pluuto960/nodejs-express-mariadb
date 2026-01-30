@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="et">
+
+<%- include('includes/head', { title: 'Loomad' }) %>
+
+    <body>
+        <%- include('includes/nav') %>
+
+            <header class="bg-light py-5 border-bottom">
+                <div class="container">
+                    <h1 class="display-6">Loomad</h1>
+                    <p class="lead mb-0">Loomade info</p>
+                </div>
+            </header>
+
+            <main class="container my-4">
+                <% loomad.forEach(loom=> { %>
+                    <div class="card mb-4" style="width: 25rem; display: inline-block; margin-right: 15px;">
+                        <img src="<%= loom.image %>" alt="<%= loom.name %>" width="300" height="200">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <%= loom.name %>
+                            </h2>
+                            <p class="card-text">Vanus: <%= loom.age %> aastat</p>
+                            <p class="card-text">Liik: <%= loom.species %>
+                            </p>
+                            <p class="card-text">Staatus: <%= loom.status %>
+                            </p>
+                        </div>
+                    </div>
+                    <% }); %>
+            </main>
+
+
+            <%- include('includes/footer') %>
+    </body>
+
+</html>
