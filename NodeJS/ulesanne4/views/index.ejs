@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+  
+  <% if (msg !== undefined) { %>
+    <%= msg %>
+    <br>
+   <% } %>
+    
+
+<% if (msg === 'deleted') { %>
+<p class="success">Postitus kustutati</p>
+<% } %>
+
+<% if (msg === 'delete_failed') { %>
+<p class="error">Postitust ei õnnestunud kustutada</p>
+<% } %>
+
+  <h1>Uudised</h1>
+   <a href="/news/create">+ Lisa uudis</a>
+<% news.forEach(n => { %>
+  <h2>
+    <a href="/news/<%= n.id %>"><%= n.title %></a>
+  </h2>
+  <a href="/news/<%= n.id %>/edit">Muuda</a><br><br>
+  <form action="/news/delete" method="POST" onsubmit="return confirm('Kas oled kindel, et soovid selle uudise kustutada?');"> 
+    <input type="hidden" name="id" value="<%= n.id %>"> 
+    <button type="submit">Kustuta</button> 
+  </form>
+<% }) %>
+
+</body>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa uudis</title>
+</head>
+<body>
+    <h1>Lisa uudis</h1>
+    <% if (errors && errors.length > 0) { %>
+    <% errors.forEach(error => { %>
+        <p class="error"><%= error.msg %></p>
+    <% }) %>
+    <% } %>
+
+    <form action="/news/create" method="POST">
+        <input type="text" name="title" placeholder="Pealkiri" value="<%= values ? values.title : '' %>"><br>
+        <textarea name="content" placeholder="Sisu"><%= values ? values.content : '' %></textarea><br>
+        <button type="submit">Salvesta</button>
+    </form>
+
+    <a href="/">Tagasi avalehele</a>
+</body>
+</html>
