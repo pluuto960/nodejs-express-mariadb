@@ -5,16 +5,28 @@ const updateNews = async (id, title, content) => {
 };
 
 // Loo ühendus andmebaasiga
-constpool=mysql.createPool({
-host:'localhost',
-user:'juhanH',
-password:'php12345678!',
-database:'juhanh'
+const pool = mysql.createPool({
+    host:'localhost',
+    user:'juhanH',
+    password:'php12345678!',
+    database:'juhanh',
+    port:3306
+});
+
+pool.getConnection((err, connection) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    else {
+        console.log("a");
+        return;
+    }
 });
 
 // Testi ühendust andmebaasiga
-async function testYhendus() {
-awaitpool.query('SELECT 1');
+async function getNews() {
+await pool.query('SELECT 1');
 console.log('Ühendus olemas');
 }
 
@@ -52,4 +64,4 @@ module.exports = {
    updateNews
 };
 
-testYhendus();
+getNews();
